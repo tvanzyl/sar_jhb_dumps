@@ -4,14 +4,14 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A.zip</file>
+      <file>${master}</file>
     </parameters>
   </node>
   <node id="Read(2)">
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/S1A_IW_SLC__1SDV_20171114T164631_20171114T164658_019263_020A18_254C.zip</file>
+      <file>${slave}</file>
     </parameters>
   </node>
   <node id="Apply-Orbit-File">
@@ -280,31 +280,13 @@
       <useSuppliedAzimuthShift>false</useSuppliedAzimuthShift>
       <overallAzimuthShift>0.0</overallAzimuthShift>
     </parameters>
-  </node>
-  <node id="SnaphuExport">
-    <operator>SnaphuExport</operator>
-    <sources>
-      <sourceProduct refid="GoldsteinPhaseFiltering"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <targetFolder>/home/tvanzyl/experiments/sar_jhb_dumps/snaphu</targetFolder>
-      <statCostMode>DEFO</statCostMode>
-      <initMethod>MST</initMethod>
-      <numberOfTileRows>10</numberOfTileRows>
-      <numberOfTileCols>10</numberOfTileCols>
-      <numberOfProcessors>4</numberOfProcessors>
-      <rowOverlap>200</rowOverlap>
-      <colOverlap>200</colOverlap>
-      <tileCostThreshold>500</tileCostThreshold>
-    </parameters>
-  </node>
+  </node>  
   <node id="Multilook">
     <operator>Multilook</operator>
     <sources>
       <sourceProduct refid="TopoPhaseRemoval"/>
     </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <sourceBands>i_ifg_VV_02Nov2017_14Nov2017,q_ifg_VV_02Nov2017_14Nov2017,coh_VV_02Nov2017_14Nov2017</sourceBands>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">      
       <nRgLooks>10</nRgLooks>
       <nAzLooks>3</nAzLooks>
       <outputIntensity>false</outputIntensity>
@@ -317,7 +299,7 @@
       <sourceProduct refid="GoldsteinPhaseFiltering"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb_mrg_DInSAR_ML_Flt.dim</file>
+      <file>${target}</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
