@@ -4,14 +4,14 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/data/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A.zip</file>
+      <file>/data1/data/sar_jhb_dumps/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A.zip</file>
     </parameters>
   </node>
   <node id="Read(2)">
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/data/S1A_IW_SLC__1SDV_20171114T164631_20171114T164658_019263_020A18_254C.zip</file>
+      <file>/data1/data/sar_jhb_dumps/S1A_IW_SLC__1SDV_20171114T164631_20171114T164658_019263_020A18_254C.zip</file>
     </parameters>
   </node>
   <node id="Apply-Orbit-File">
@@ -83,7 +83,7 @@
   <node id="Interferogram(2)">
     <operator>Interferogram</operator>
     <sources>
-      <sourceProduct refid="Enhanced-Spectral-Diversity"/>
+      <sourceProduct refid="Back-Geocoding(2)"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
@@ -113,39 +113,13 @@
       <selectedPolarisations>VV</selectedPolarisations>
     </parameters>
   </node>
-  <node id="Enhanced-Spectral-Diversity">
-    <operator>Enhanced-Spectral-Diversity</operator>
-    <sources>
-      <sourceProduct refid="Back-Geocoding(2)"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fineWinWidthStr>512</fineWinWidthStr>
-      <fineWinHeightStr>512</fineWinHeightStr>
-      <fineWinAccAzimuth>16</fineWinAccAzimuth>
-      <fineWinAccRange>16</fineWinAccRange>
-      <fineWinOversampling>128</fineWinOversampling>
-      <xCorrThreshold>0.1</xCorrThreshold>
-      <cohThreshold>0.3</cohThreshold>
-      <numBlocksPerOverlap>10</numBlocksPerOverlap>
-      <esdEstimator>Periodogram</esdEstimator>
-      <weightFunc>Inv Quadratic</weightFunc>
-      <temporalBaselineType>Number of images</temporalBaselineType>
-      <maxTemporalBaseline>4</maxTemporalBaseline>
-      <integrationMethod>L1 and L2</integrationMethod>
-      <doNotWriteTargetBands>false</doNotWriteTargetBands>
-      <useSuppliedRangeShift>false</useSuppliedRangeShift>
-      <overallRangeShift>0.0</overallRangeShift>
-      <useSuppliedAzimuthShift>false</useSuppliedAzimuthShift>
-      <overallAzimuthShift>0.0</overallAzimuthShift>
-    </parameters>
-  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
       <sourceProduct refid="TOPSAR-Deburst(2)"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb.dim</file>
+      <file>/data1/data/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
@@ -173,16 +147,13 @@
       <displayPosition x="259.0" y="82.0"/>
     </node>
     <node id="Interferogram(2)">
-      <displayPosition x="508.0" y="84.0"/>
+      <displayPosition x="430.0" y="81.0"/>
     </node>
     <node id="TOPSAR-Deburst(2)">
-      <displayPosition x="587.0" y="44.0"/>
-    </node>
-    <node id="Enhanced-Spectral-Diversity">
-      <displayPosition x="351.0" y="40.0"/>
+      <displayPosition x="579.0" y="81.0"/>
     </node>
     <node id="Write">
-      <displayPosition x="765.0" y="94.0"/>
+      <displayPosition x="754.0" y="82.0"/>
     </node>
   </applicationData>
 </graph>
