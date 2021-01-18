@@ -287,7 +287,7 @@
       <sourceProduct refid="Multilook"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/tvanzyl/experiments/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb_mrg_DInSAR_ML_Flt.dim</file>
+      <file>/data1/data/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb_mrg_DInSAR_ML_Flt.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
