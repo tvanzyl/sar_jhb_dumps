@@ -268,26 +268,13 @@
       <overallAzimuthShift>0.0</overallAzimuthShift>
     </parameters>
   </node>
-  <node id="Multilook">
-    <operator>Multilook</operator>
+  <node id="Write">
+    <operator>Write</operator>
     <sources>
       <sourceProduct refid="TopoPhaseRemoval"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <sourceBands/>
-      <nRgLooks>10</nRgLooks>
-      <nAzLooks>3</nAzLooks>
-      <outputIntensity>false</outputIntensity>
-      <grSquarePixel>true</grSquarePixel>
-    </parameters>
-  </node>
-  <node id="Write">
-    <operator>Write</operator>
-    <sources>
-      <sourceProduct refid="Multilook"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/data1/data/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb_mrg_DInSAR_ML_Flt.dim</file>
+      <file>/data1/data/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb_mrg_DInSAR.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
@@ -346,9 +333,6 @@
     </node>
     <node id="Enhanced-Spectral-Diversity(2)">
       <displayPosition x="351.0" y="269.0"/>
-    </node>
-    <node id="Multilook">
-      <displayPosition x="925.0" y="150.0"/>
     </node>
     <node id="Write">
       <displayPosition x="1038.0" y="150.0"/>
