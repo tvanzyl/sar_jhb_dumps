@@ -83,7 +83,75 @@
   <node id="Interferogram(2)">
     <operator>Interferogram</operator>
     <sources>
-      <sourceProduct refid="Back-Geocoding(2)"/>
+      <sourceProduct refid="Enhanced-Spectral-Diversity"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
+      <srpPolynomialDegree>5</srpPolynomialDegree>
+      <srpNumberPoints>501</srpNumberPoints>
+      <orbitDegree>3</orbitDegree>
+      <includeCoherence>true</includeCoherence>
+      <cohWinAz>2</cohWinAz>
+      <cohWinRg>7</cohWinRg>
+      <squarePixel>true</squarePixel>
+      <subtractTopographicPhase>false</subtractTopographicPhase>
+      <demName>SRTM 1Sec HGT</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <externalDEMApplyEGM/>
+      <tileExtensionPercent/>
+      <outputElevation>false</outputElevation>
+      <outputLatLon>false</outputLatLon>
+    </parameters>
+  </node>
+  <node id="TOPSAR-Split(5)">
+    <operator>TOPSAR-Split</operator>
+    <sources>
+      <sourceProduct refid="Apply-Orbit-File"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <subswath>IW3</subswath>
+      <selectedPolarisations>VV</selectedPolarisations>
+      <firstBurstIndex>8</firstBurstIndex>
+      <lastBurstIndex>9</lastBurstIndex>
+      <wktAoi/>
+    </parameters>
+  </node>
+  <node id="TOPSAR-Split(6)">
+    <operator>TOPSAR-Split</operator>
+    <sources>
+      <sourceProduct refid="Apply-Orbit-File(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <subswath>IW3</subswath>
+      <selectedPolarisations>VV</selectedPolarisations>
+      <firstBurstIndex>8</firstBurstIndex>
+      <lastBurstIndex>9</lastBurstIndex>
+      <wktAoi/>
+    </parameters>
+  </node>
+  <node id="Back-Geocoding(3)">
+    <operator>Back-Geocoding</operator>
+    <sources>
+      <sourceProduct refid="TOPSAR-Split(5)"/>
+      <sourceProduct.1 refid="TOPSAR-Split(6)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <demName>SRTM 1Sec HGT</demName>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <resamplingType>BILINEAR_INTERPOLATION</resamplingType>
+      <maskOutAreaWithoutElevation>true</maskOutAreaWithoutElevation>
+      <outputRangeAzimuthOffset>false</outputRangeAzimuthOffset>
+      <outputDerampDemodPhase>true</outputDerampDemodPhase>
+      <disableReramp>false</disableReramp>
+    </parameters>
+  </node>
+  <node id="Interferogram(3)">
+    <operator>Interferogram</operator>
+    <sources>
+      <sourceProduct refid="Enhanced-Spectral-Diversity(2)"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
@@ -113,13 +181,113 @@
       <selectedPolarisations>VV</selectedPolarisations>
     </parameters>
   </node>
+  <node id="TOPSAR-Deburst(3)">
+    <operator>TOPSAR-Deburst</operator>
+    <sources>
+      <sourceProduct refid="Interferogram(3)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <selectedPolarisations>VV</selectedPolarisations>
+    </parameters>
+  </node>
+  <node id="TOPSAR-Merge">
+    <operator>TOPSAR-Merge</operator>
+    <sources>
+      <sourceProduct.2 refid="TOPSAR-Deburst(2)"/>
+      <sourceProduct.1 refid="TOPSAR-Deburst(3)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <selectedPolarisations>VV</selectedPolarisations>
+    </parameters>
+  </node>
+  <node id="TopoPhaseRemoval">
+    <operator>TopoPhaseRemoval</operator>
+    <sources>
+      <sourceProduct refid="TOPSAR-Merge"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <orbitDegree>3</orbitDegree>
+      <demName>SRTM 1Sec HGT</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <tileExtensionPercent>100</tileExtensionPercent>
+      <outputTopoPhaseBand>false</outputTopoPhaseBand>
+      <outputElevationBand>false</outputElevationBand>
+      <outputLatLonBands>false</outputLatLonBands>
+    </parameters>
+  </node>
+  <node id="Enhanced-Spectral-Diversity">
+    <operator>Enhanced-Spectral-Diversity</operator>
+    <sources>
+      <sourceProduct refid="Back-Geocoding(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <fineWinWidthStr>512</fineWinWidthStr>
+      <fineWinHeightStr>512</fineWinHeightStr>
+      <fineWinAccAzimuth>16</fineWinAccAzimuth>
+      <fineWinAccRange>16</fineWinAccRange>
+      <fineWinOversampling>128</fineWinOversampling>
+      <xCorrThreshold>0.1</xCorrThreshold>
+      <cohThreshold>0.3</cohThreshold>
+      <numBlocksPerOverlap>10</numBlocksPerOverlap>
+      <esdEstimator>Periodogram</esdEstimator>
+      <weightFunc>Inv Quadratic</weightFunc>
+      <temporalBaselineType>Number of images</temporalBaselineType>
+      <maxTemporalBaseline>4</maxTemporalBaseline>
+      <integrationMethod>L1 and L2</integrationMethod>
+      <doNotWriteTargetBands>false</doNotWriteTargetBands>
+      <useSuppliedRangeShift>false</useSuppliedRangeShift>
+      <overallRangeShift>0.0</overallRangeShift>
+      <useSuppliedAzimuthShift>false</useSuppliedAzimuthShift>
+      <overallAzimuthShift>0.0</overallAzimuthShift>
+    </parameters>
+  </node>
+  <node id="Enhanced-Spectral-Diversity(2)">
+    <operator>Enhanced-Spectral-Diversity</operator>
+    <sources>
+      <sourceProduct refid="Back-Geocoding(3)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <fineWinWidthStr>512</fineWinWidthStr>
+      <fineWinHeightStr>512</fineWinHeightStr>
+      <fineWinAccAzimuth>16</fineWinAccAzimuth>
+      <fineWinAccRange>16</fineWinAccRange>
+      <fineWinOversampling>128</fineWinOversampling>
+      <xCorrThreshold>0.1</xCorrThreshold>
+      <cohThreshold>0.3</cohThreshold>
+      <numBlocksPerOverlap>10</numBlocksPerOverlap>
+      <esdEstimator>Periodogram</esdEstimator>
+      <weightFunc>Inv Quadratic</weightFunc>
+      <temporalBaselineType>Number of images</temporalBaselineType>
+      <maxTemporalBaseline>4</maxTemporalBaseline>
+      <integrationMethod>L1 and L2</integrationMethod>
+      <doNotWriteTargetBands>false</doNotWriteTargetBands>
+      <useSuppliedRangeShift>false</useSuppliedRangeShift>
+      <overallRangeShift>0.0</overallRangeShift>
+      <useSuppliedAzimuthShift>false</useSuppliedAzimuthShift>
+      <overallAzimuthShift>0.0</overallAzimuthShift>
+    </parameters>
+  </node>
+  <node id="Multilook">
+    <operator>Multilook</operator>
+    <sources>
+      <sourceProduct refid="TopoPhaseRemoval"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <nRgLooks>10</nRgLooks>
+      <nAzLooks>3</nAzLooks>
+      <outputIntensity>false</outputIntensity>
+      <grSquarePixel>true</grSquarePixel>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="TOPSAR-Deburst(2)"/>
+      <sourceProduct refid="Multilook"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/data1/data/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb.dim</file>
+      <file>/home/tvanzyl/experiments/sar_jhb_dumps/dinsar/S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A_Orb_Stack_Ifg_Deb_mrg_DInSAR_ML_Flt.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
@@ -147,13 +315,43 @@
       <displayPosition x="259.0" y="82.0"/>
     </node>
     <node id="Interferogram(2)">
-      <displayPosition x="430.0" y="81.0"/>
+      <displayPosition x="508.0" y="84.0"/>
+    </node>
+    <node id="TOPSAR-Split(5)">
+      <displayPosition x="162.0" y="188.0"/>
+    </node>
+    <node id="TOPSAR-Split(6)">
+      <displayPosition x="165.0" y="260.0"/>
+    </node>
+    <node id="Back-Geocoding(3)">
+      <displayPosition x="254.0" y="227.0"/>
+    </node>
+    <node id="Interferogram(3)">
+      <displayPosition x="504.0" y="225.0"/>
     </node>
     <node id="TOPSAR-Deburst(2)">
-      <displayPosition x="579.0" y="81.0"/>
+      <displayPosition x="587.0" y="44.0"/>
+    </node>
+    <node id="TOPSAR-Deburst(3)">
+      <displayPosition x="595.0" y="271.0"/>
+    </node>
+    <node id="TOPSAR-Merge">
+      <displayPosition x="613.0" y="151.0"/>
+    </node>
+    <node id="TopoPhaseRemoval">
+      <displayPosition x="758.0" y="150.0"/>
+    </node>
+    <node id="Enhanced-Spectral-Diversity">
+      <displayPosition x="351.0" y="40.0"/>
+    </node>
+    <node id="Enhanced-Spectral-Diversity(2)">
+      <displayPosition x="351.0" y="269.0"/>
+    </node>
+    <node id="Multilook">
+      <displayPosition x="925.0" y="150.0"/>
     </node>
     <node id="Write">
-      <displayPosition x="754.0" y="82.0"/>
+      <displayPosition x="1038.0" y="150.0"/>
     </node>
   </applicationData>
 </graph>
