@@ -203,7 +203,7 @@
   <node id="GoldsteinPhaseFiltering">
     <operator>GoldsteinPhaseFiltering</operator>
     <sources>
-      <sourceProduct refid="Multilook"/>
+      <sourceProduct refid="TopoPhaseRemoval"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <alpha>1.0</alpha>
@@ -281,18 +281,6 @@
       <overallAzimuthShift>0.0</overallAzimuthShift>
     </parameters>
   </node>  
-  <node id="Multilook">
-    <operator>Multilook</operator>
-    <sources>
-      <sourceProduct refid="TopoPhaseRemoval"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">      
-      <nRgLooks>10</nRgLooks>
-      <nAzLooks>3</nAzLooks>
-      <outputIntensity>false</outputIntensity>
-      <grSquarePixel>true</grSquarePixel>
-    </parameters>
-  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
