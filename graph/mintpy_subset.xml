@@ -16,7 +16,7 @@
       <sourceBands>${coh_band}</sourceBands>
       <region>0,0,0,0</region>
       <referenceBand/>
-      <!--<geoRegion>POLYGON ((28.03219985961914 -26.236299514770508, 28.042200088500977 -26.236299514770508, 28.042200088500977 -26.228300094604492, 28.03219985961914 -26.228300094604492, 28.03219985961914 -26.236299514770508, 28.03219985961914 -26.236299514770508))</geoRegion>-->
+      <geoRegion>POLYGON((27.115 -25.886,28.847 -25.886,28.847 -26.680,27.115 -26.680,27.115 -25.886))</geoRegion>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <fullSwath>false</fullSwath>
@@ -33,7 +33,7 @@
       <sourceBands>${unw_band}</sourceBands>
       <region>0,0,0,0</region>
       <referenceBand/>
-      <!--<geoRegion>POLYGON ((28.03219985961914 -26.236299514770508, 28.042200088500977 -26.236299514770508, 28.042200088500977 -26.228300094604492, 28.03219985961914 -26.228300094604492, 28.03219985961914 -26.236299514770508, 28.03219985961914 -26.236299514770508))</geoRegion>-->
+      <geoRegion>POLYGON((27.115 -25.886,28.847 -25.886,28.847 -26.680,27.115 -26.680,27.115 -25.886))</geoRegion>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <fullSwath>false</fullSwath>
