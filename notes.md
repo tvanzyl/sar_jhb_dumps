@@ -16,15 +16,27 @@ Install
     * snap --nosplash --nogui --modules --update-all --refresh
 * beware versions of python that are supported
 
-GUI
+# Lessons Learnt
+## Snap GUI
 * when doing split make sure to select the bands, highlight in yellow
 * always make sure selections are done
 
-Geographic tools
+# Geographic tools
 https://www.latlong.net/lat-long-dms.html
+http://arthur-e.github.io/Wicket/sandbox-gmaps3.html
+https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=-22.81733&lng=-43.78704&themeId=DEFAULT-THEME&datasetId=S1&fromTime=2021-01-18T00%3A00%3A00.000Z&toTime=2021-01-18T23%3A59%3A59.999Z&layerId=6_VV_DB_ORTHORECTIFIED&visualizationUrl=https%3A%2F%2Feocloud.sentinel-hub.com%2Fv1%2Fwms%2F6a6b787f-0dda-4153-8ae9-a1729dd0c890
 
-Download the images from:
+
+
+# Download the images from:
+
+## JHB
 https://search.asf.alaska.edu/#/?zoom=9.699250560565591&center=27.691824,-26.910893&polygon=POLYGON((27.6914%20-26.3074,28.2651%20-26.3107,28.128%20-26.1377,27.7958%20-26.219,27.6914%20-26.3074))&start=2018-11-01T00:00:00Z&end=2020-12-01T23:59:00Z&resultsLoaded=true&granule=S1A_IW_SLC__1SDV_20201122T164650_20201122T164717_035363_0421C7_2335-SLC&flightDirs=Ascending&beamModes=IW&productTypes=SLC
+
+
+## RIO
+https://search.asf.alaska.edu/#/?zoom=8.748863213168661&center=-43.570862,-23.446499&polygon=POINT(-43.7613%20-22.7912)&start=2017-11-30T00:00:00Z&end=2020-12-01T23:59:00Z&resultsLoaded=true&granule=S1B_IW_SLC__1SDV_20201201T082148_20201201T082215_024506_02E9BB_170B-SLC&flightDirs=Descending&beamModes=IW&productTypes=SLC
+
 
 Get all SBAS pairs:
 https://search.asf.alaska.edu/#/?searchType=SBAS%20Search&zoom=7.297397670585765&center=25.706626,-28.233405&resultsLoaded=true&granule=S1A_IW_SLC__1SDV_20201216T164650_20201216T164716_035713_042DE5_3381-SLC&master=S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A&perp=151to&temporal=36to
