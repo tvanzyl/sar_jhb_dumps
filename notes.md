@@ -58,3 +58,12 @@ Create Interferograms
     1. https://asf.alaska.edu/how-to/data-recipes/interpreting-an-unwrapped-interferogram-creating-a-deformation-map/
 
 gpt TOPSAR\ Coreg\ Interferogram\ VV\ IW\ 2_3\ B\ 8_9.xml -Ptarget=../dinsar/20180101_20180113.dim -Pmaster=../S1A_IW_SLC__1SDV_20180101T164630_20180101T164656_019963_021FFB_2D88.zip -Pslave=../S1A_IW_SLC__1SDV_20180113T164629_20180113T164656_020138_022584_64C9.zip
+
+
+
+# GDP
+> NAH: https://data.oecd.org/gdp/quarterly-gdp.htm#indicator-chart
+
+https://data.imf.org/regular.aspx?key=62771448
+
+
