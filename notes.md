@@ -21,6 +21,9 @@ Install
 * when doing split make sure to select the bands, highlight in yellow
 * always make sure selections are done
 
+### Snap CmdLine Update
+https://senbox.atlassian.net/wiki/spaces/SNAP/pages/30539785/Update+SNAP+from+the+command+line
+
 # Geographic tools
 https://www.latlong.net/lat-long-dms.html
 http://arthur-e.github.io/Wicket/sandbox-gmaps3.html
