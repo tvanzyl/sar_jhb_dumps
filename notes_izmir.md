@@ -2,3 +2,5 @@ https://search.asf.alaska.edu/#/?zoom=9.253830158137442&center=27.507055,37.3305
 
 > Multilook 5x1 -- 17.4m
 > Multilook 8x2 -- 30.0m
+
+extract land/sea mask using dem_tc to create dem_tc_msk

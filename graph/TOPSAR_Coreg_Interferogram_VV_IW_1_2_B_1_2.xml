@@ -187,8 +187,8 @@
       <srpNumberPoints>501</srpNumberPoints>
       <orbitDegree>3</orbitDegree>
       <includeCoherence>true</includeCoherence>
-      <cohWinAz>2</cohWinAz>
-      <cohWinRg>8</cohWinRg>
+      <cohWinAz>${Az}</cohWinAz>
+      <cohWinRg>${Rg}</cohWinRg>
       <squarePixel>true</squarePixel>
       <subtractTopographicPhase>false</subtractTopographicPhase>
       <demName>SRTM 1Sec HGT</demName>
@@ -211,8 +211,8 @@
       <srpNumberPoints>501</srpNumberPoints>
       <orbitDegree>3</orbitDegree>
       <includeCoherence>true</includeCoherence>
-      <cohWinAz>2</cohWinAz>
-      <cohWinRg>8</cohWinRg>
+      <cohWinAz>${Az}</cohWinAz>
+      <cohWinRg>${Rg}</cohWinRg>
       <squarePixel>true</squarePixel>
       <subtractTopographicPhase>false</subtractTopographicPhase>
       <demName>SRTM 1Sec HGT</demName>
@@ -275,8 +275,8 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <nRgLooks>8</nRgLooks>
-      <nAzLooks>2</nAzLooks>
+      <nRgLooks>${Rg}</nRgLooks>
+      <nAzLooks>${Az}</nAzLooks>
       <outputIntensity>false</outputIntensity>
       <grSquarePixel>true</grSquarePixel>
     </parameters>

@@ -41,7 +41,6 @@ https://search.asf.alaska.edu/#/?zoom=8.748863213168661&center=-43.570862,-23.44
 ## Istanbul
 https://search.asf.alaska.edu/#/?zoom=8.380138087789478&center=28.876778,40.109126&polygon=POINT(29.096%2041.0956)&resultsLoaded=true&granule=S1B_IW_SLC__1SDV_20191031T040538_20191031T040605_018714_02345E_12E9-SLC&searchType=Geographic%20Search&start=2017-12-01T00:00:00Z&end=2020-12-31T23:59:00Z&productTypes=SLC&beamModes=IW&path=138-&frame=456-
 
-
 Get all SBAS pairs:
 https://search.asf.alaska.edu/#/?searchType=SBAS%20Search&zoom=7.297397670585765&center=25.706626,-28.233405&resultsLoaded=true&granule=S1A_IW_SLC__1SDV_20201216T164650_20201216T164716_035713_042DE5_3381-SLC&master=S1A_IW_SLC__1SDV_20171102T164632_20171102T164659_019088_0204A3_D54A&perp=151to&temporal=36to
 
@@ -56,6 +55,8 @@ Create Interferograms
 3. Import unwrapped interferograms into SNAP?
 4. Create a deformation map
     1. https://asf.alaska.edu/how-to/data-recipes/interpreting-an-unwrapped-interferogram-creating-a-deformation-map/
+5. Extract mintpy 
+6. Extract land/sea mask using dem_tc to create dem_tc_msk
 
 gpt TOPSAR\ Coreg\ Interferogram\ VV\ IW\ 2_3\ B\ 8_9.xml -Ptarget=../dinsar/20180101_20180113.dim -Pmaster=../S1A_IW_SLC__1SDV_20180101T164630_20180101T164656_019963_021FFB_2D88.zip -Pslave=../S1A_IW_SLC__1SDV_20180113T164629_20180113T164656_020138_022584_64C9.zip
 
