@@ -1,13 +1,13 @@
 <graph id="Graph">
-  <version>1.0</version>
+  <version>1.0</version>  
   <node id="Read">
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>${source}</file>
     </parameters>
-  </node>
-  <node id="Subset">
+  </node>  
+  <node id="SubsetCoherence">
     <operator>Subset</operator>
     <sources>
       <sourceProduct refid="Read"/>
@@ -24,7 +24,7 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
-  <node id="Subset(2)">
+  <node id="SubsetUnwarped">
     <operator>Subset</operator>
     <sources>
       <sourceProduct refid="Read"/>
@@ -41,42 +41,51 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
-  <node id="Write(2)">
+  <node id="SubsetIntensity">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>${int_band}</sourceBands>
+      <region>0,0,0,0</region>
+      <referenceBand/>
+      <geoRegion>${geoRegion}</geoRegion>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="WriteUnwarped">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Subset(2)"/>
+      <sourceProduct refid="SubsetUnwarped"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>${target_unw}</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
-  <node id="Write">
+  <node id="WriteCoherence">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Subset"/>
+      <sourceProduct refid="SubsetCoherence"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>${target_coh}</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
-  <applicationData id="Presentation">
-    <Description/>
-    <node id="Read">
-            <displayPosition x="37.0" y="134.0"/>
-    </node>
-    <node id="Subset">
-      <displayPosition x="128.0" y="97.0"/>
-    </node>
-    <node id="Subset(2)">
-      <displayPosition x="124.0" y="166.0"/>
-    </node>
-    <node id="Write(2)">
-      <displayPosition x="232.0" y="167.0"/>
-    </node>
-    <node id="Write">
-            <displayPosition x="230.0" y="98.0"/>
-    </node>
-  </applicationData>
+  <node id="WriteIntensity">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="SubsetIntensity"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>${target_int}</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
 </graph>

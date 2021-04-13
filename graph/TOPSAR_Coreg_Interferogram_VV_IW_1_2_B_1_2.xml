@@ -187,8 +187,8 @@
       <srpNumberPoints>501</srpNumberPoints>
       <orbitDegree>3</orbitDegree>
       <includeCoherence>true</includeCoherence>
-      <cohWinAz>${Az}</cohWinAz>
-      <cohWinRg>${Rg}</cohWinRg>
+      <cohWinAz>${cohAz}</cohWinAz>
+      <cohWinRg>${cohRg}</cohWinRg>
       <squarePixel>true</squarePixel>
       <subtractTopographicPhase>false</subtractTopographicPhase>
       <demName>SRTM 1Sec HGT</demName>
@@ -211,8 +211,8 @@
       <srpNumberPoints>501</srpNumberPoints>
       <orbitDegree>3</orbitDegree>
       <includeCoherence>true</includeCoherence>
-      <cohWinAz>${Az}</cohWinAz>
-      <cohWinRg>${Rg}</cohWinRg>
+      <cohWinAz>${cohAz}</cohWinAz>
+      <cohWinRg>${cohRg}</cohWinRg>
       <squarePixel>true</squarePixel>
       <subtractTopographicPhase>false</subtractTopographicPhase>
       <demName>SRTM 1Sec HGT</demName>
@@ -293,11 +293,11 @@
       <useCoherenceMask>false</useCoherenceMask>
       <coherenceThreshold>0.2</coherenceThreshold>
     </parameters>
-  </node> 
+  </node>     
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="GoldsteinPhaseFiltering"/>
+      <sourceProduct refid="GoldsteinPhaseFiltering"/>      
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>${target}</file>
