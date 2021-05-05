@@ -20,4 +20,8 @@ https://www.mdpi.com/2504-3900/18/1/11/pdf
 
 extract land/sea mask using dem_tc to create dem_tc_msk
 
+<<<<<<< HEAD
 http://umap.openstreetmap.fr/en/map/tmmob-izmir-ikk-deprem-sonras-yklan-binalar-harita_517134#15/38.4568/27.1937
+=======
+
+>>>>>>> 2e02ecec3b320c804d1677f36bd63615f860a9ae
