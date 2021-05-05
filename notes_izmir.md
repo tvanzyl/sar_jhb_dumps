@@ -6,3 +6,5 @@ https://search.asf.alaska.edu/#/?zoom=7.662053366010992&center=27.449674,36.8677
 > Multilook 8x2 -- 30.0m
 
 extract land/sea mask using dem_tc to create dem_tc_msk
+
+http://umap.openstreetmap.fr/en/map/tmmob-izmir-ikk-deprem-sonras-yklan-binalar-harita_517134#15/38.4568/27.1937
