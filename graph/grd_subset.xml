@@ -4,13 +4,13 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/data1/data/sar_izmir/GRD_Asc/20201024_Orb_Thm_Bdr_TC.dim</file>
+      <file>/data1/data/sar_izmir/GRD_Asc/20201012_1024_1105_Orb_Thm_Bdr_Cal_ML_Stack_Spk_TC.dim</file>
     </parameters>
   </node>
   <node id="Subset">
     <operator>Subset</operator>
     <sources>
-      <sourceProduct refid="Read"/>
+      <sourceProduct refid="BandSelect"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
@@ -24,47 +24,40 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
-  <node id="Resample">
-    <operator>Resample</operator>
+  <node id="BandSelect">
+    <operator>BandSelect</operator>
     <sources>
-      <sourceProduct refid="Subset"/>
+      <sourceProduct refid="Read"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <referenceBand/>
-      <targetWidth>412</targetWidth>
-      <targetHeight>220</targetHeight>
-      <targetResolution/>
-      <upsampling>Nearest</upsampling>
-      <downsampling>First</downsampling>
-      <flagDownsampling>First</flagDownsampling>
-      <resamplingPreset/>
-      <bandResamplings/>
-      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+      <selectedPolarisations>VH</selectedPolarisations>
+      <sourceBands>Sigma0_VH_mst_24Oct2020,Sigma0_VH_slv1_05Nov2020,Sigma0_VH_slv3_12Oct2020</sourceBands>
+      <bandNamePattern/>
     </parameters>
   </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Resample"/>
+      <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/data1/data/sar_izmir/GRD_Asc/Subset_20201024_Orb_Thm_Bdr_TC_resampled.dim</file>
+      <file>/data1/data/sar_izmir/GRD_Asc/Subset_20201012_1024_1105_Orb_Thm_Bdr_Cal_ML_Stack_Spk_TC_VH.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
   <applicationData id="Presentation">
     <Description/>
     <node id="Read">
-            <displayPosition x="37.0" y="134.0"/>
+            <displayPosition x="37.0" y="135.0"/>
     </node>
     <node id="Subset">
-      <displayPosition x="143.0" y="134.0"/>
+      <displayPosition x="255.0" y="137.0"/>
     </node>
-    <node id="Resample">
-      <displayPosition x="232.0" y="134.0"/>
+    <node id="BandSelect">
+      <displayPosition x="131.0" y="135.0"/>
     </node>
     <node id="Write">
-            <displayPosition x="340.0" y="134.0"/>
+            <displayPosition x="351.0" y="136.0"/>
     </node>
   </applicationData>
 </graph>
